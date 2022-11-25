@@ -38,10 +38,26 @@ const myPromise = new Promise((resolve, reject) => {
         if (nome === "Matheus") { 
         resolve ('Usuário Matheus encontrando');
         } else { 
-        reject ('Usuário não foi encontrado');
+        reject ('Usuário ' + nome +  ' não foi encontrado');
         }
         
         })
         myPromise3.then((data) => { 
             console.log(data)
         }).catch((err) => { console.log("Aconteceu um erro! Erro: " + err)})
+
+        // resolver varias promessas
+
+const p1 = new Promise ((resolve, reject) => { 
+    resolve('P1 OK')
+})
+
+const p2 = new Promise ((resolve, reject) => {
+    resolve ('P2 ok')
+})
+
+const p3 = new Promise ((resolve, reject) => { 
+    resolve ('p3 ok')
+})
+
+    const resolveAll = Promise.all([p1, p2, p3]).then((data) => { console.log(data)}).catch((err) => { console.log ('Houve um erro ' + err)})
