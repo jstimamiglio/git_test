@@ -61,3 +61,13 @@ const p3 = new Promise ((resolve, reject) => {
 })
 
     const resolveAll = Promise.all([p1, p2, p3]).then((data) => { console.log(data)}).catch((err) => { console.log ('Houve um erro ' + err)})
+
+    var resposta; 
+
+ 
+
+      fetch("https://api.github.com/users/jstimamiglio")
+.then(r =>  r.json().then(data => ({status: r.status, body: data})))
+.then(obj => console.log(obj));
+
+
